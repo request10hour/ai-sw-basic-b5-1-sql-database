@@ -1,0 +1,28 @@
+verification
+----------------
+TABLE ROW COUNTS
+table_name  row_count
+----------  ---------
+genre       10
+member      10
+movie       10
+review      10
+verification
+-------------------
+FOREIGN KEY SETTING
+foreign_keys
+------------
+1
+verification
+------------------
+MOVIE FOREIGN KEYS
+id  seq  table  from      to  on_update  on_delete  match
+--  ---  -----  --------  --  ---------  ---------  -----
+0   0    genre  genre_id  id  NO ACTION  NO ACTION  NONE
+verification
+-------------------
+REVIEW FOREIGN KEYS
+id  seq  table   from       to  on_update  on_delete  match
+--  ---  ------  ---------  --  ---------  ---------  -----
+0   0    movie   movie_id   id  NO ACTION  NO ACTION  NONE
+1   0    member  member_id  id  NO ACTION  NO ACTION  NONE
