@@ -10,6 +10,7 @@ SQLite로 만든 작은 영화 평점 데이터베이스입니다. 과제의 기
 | `seed.sql` | 각 테이블에 10행 이상의 샘플 데이터 입력 |
 | `queries.sql` | 과제 분류에 맞춘 핵심 쿼리 15개 |
 | `results/query_results.txt` | 15개 쿼리와 실행 결과 |
+| `results/screenshots/` | Q01~Q15의 실제 GUI 터미널 실행 화면 15장 |
 | `results/setup_verification.txt` | 테이블별 행 수와 FK 구성 확인 결과 |
 | `movie_rating.db` | 위 SQL을 실행해서 만든 SQLite 데이터베이스 |
 
@@ -56,6 +57,15 @@ sqlite3 -echo -header -column movie_rating.db < queries.sql > results/query_resu
 | Q15 | 인덱스 1개 | `review.movie_id` 인덱스 생성 |
 
 `review`는 처음에 11행을 입력합니다. Q14에서 한 행을 삭제한 뒤에도 과제 기준인 10행이 남습니다. Q13~Q15 뒤의 짧은 `SELECT`는 실행 결과를 보여주기 위한 확인문이며, 15개 핵심 쿼리 수에는 포함하지 않습니다.
+
+### GUI 실행 결과
+
+각 이미지는 해당 번호의 SQL과 실제 실행 결과를 한 화면에 보여줍니다. SQLite 명령은 Multipass VM `ai-sw-b5-1` 안에서 실행했으며, 전체 텍스트 결과는 [`query_results.txt`](results/query_results.txt)에서도 확인할 수 있습니다.
+
+| [Q01](results/screenshots/q01.png) | [Q02](results/screenshots/q02.png) | [Q03](results/screenshots/q03.png) | [Q04](results/screenshots/q04.png) | [Q05](results/screenshots/q05.png) |
+|---|---|---|---|---|
+| [Q06](results/screenshots/q06.png) | [Q07](results/screenshots/q07.png) | [Q08](results/screenshots/q08.png) | [Q09](results/screenshots/q09.png) | [Q10](results/screenshots/q10.png) |
+| [Q11](results/screenshots/q11.png) | [Q12](results/screenshots/q12.png) | [Q13](results/screenshots/q13.png) | [Q14](results/screenshots/q14.png) | [Q15](results/screenshots/q15.png) |
 
 ## 동료평가 설명 포인트
 
