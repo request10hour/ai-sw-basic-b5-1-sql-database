@@ -60,7 +60,9 @@ sqlite3 -echo -header -column movie_rating.db < queries.sql > results/query_resu
 
 ### GUI 실행 결과
 
-각 이미지는 해당 번호의 SQL과 실제 실행 결과를 한 화면에 보여줍니다. SQLite 명령은 Multipass VM `ai-sw-b5-1` 안에서 실행했으며, 전체 텍스트 결과는 [`query_results.txt`](results/query_results.txt)에서도 확인할 수 있습니다.
+각 이미지는 Multipass VM `ai-sw-b5-1`의 실제 셸 프롬프트에서 `sqlite3` 명령을 입력하고 SQL과 실행 결과가 출력된 장면을 한 화면에 보여줍니다. 전체 텍스트 결과는 [`query_results.txt`](results/query_results.txt)에서도 확인할 수 있습니다.
+
+화면의 `q01.sql`~`q15.sql`과 `q01.db`~`q15.db`는 각 쿼리를 독립적으로 캡처하기 위해 제출 파일을 바탕으로 VM 안에서 만든 임시 파일이며, 저장소의 실제 제출 SQL은 `queries.sql`입니다.
 
 | [Q01](results/screenshots/q01.png) | [Q02](results/screenshots/q02.png) | [Q03](results/screenshots/q03.png) | [Q04](results/screenshots/q04.png) | [Q05](results/screenshots/q05.png) |
 |---|---|---|---|---|
