@@ -1,28 +1,27 @@
-verification
-----------------
-TABLE ROW COUNTS
+[테이블별 최종 행 수]
 table_name  row_count
 ----------  ---------
-genre       10
-member      10
-movie       10
-review      10
-verification
--------------------
-FOREIGN KEY SETTING
-foreign_keys
-------------
-1
-verification
-------------------
-MOVIE FOREIGN KEYS
-id  seq  table  from      to  on_update  on_delete  match
---  ---  -----  --------  --  ---------  ---------  -----
-0   0    genre  genre_id  id  NO ACTION  NO ACTION  NONE
-verification
--------------------
-REVIEW FOREIGN KEYS
-id  seq  table   from       to  on_update  on_delete  match
---  ---  ------  ---------  --  ---------  ---------  -----
-0   0    movie   movie_id   id  NO ACTION  NO ACTION  NONE
-1   0    member  member_id  id  NO ACTION  NO ACTION  NONE
+category    10
+customer    10
+product     22
+purchase    10
+
+[정의된 외래 키]
+child_table  child_column  parent_table  parent_column
+-----------  ------------  ------------  -------------
+product      category_id   category      id
+purchase     customer_id   customer      id
+purchase     product_id    product       id
+
+[현재 외래 키 위반 수]
+foreign_key_violation_count
+---------------------------
+0
+
+[없는 상품 ID 999 참조 차단 확인]
+Runtime error near line 30: FOREIGN KEY constraint failed (19)
+
+[차단 후 구매 행 수]
+purchase_count_after_failed_insert
+----------------------------------
+10

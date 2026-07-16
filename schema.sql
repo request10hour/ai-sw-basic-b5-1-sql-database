@@ -2,39 +2,38 @@
 PRAGMA foreign_keys = ON;
 
 -- 다시 실행할 수 있도록 자식 테이블부터 삭제한다.
-DROP TABLE IF EXISTS review;
-DROP TABLE IF EXISTS movie;
-DROP TABLE IF EXISTS member;
-DROP TABLE IF EXISTS genre;
+DROP TABLE IF EXISTS purchase;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS category;
 
-CREATE TABLE genre (
+CREATE TABLE category (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE member (
+CREATE TABLE customer (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
+    phone TEXT NOT NULL UNIQUE,
     joined_at TEXT NOT NULL
 );
 
-CREATE TABLE movie (
+CREATE TABLE product (
     id INTEGER PRIMARY KEY,
-    genre_id INTEGER NOT NULL,
-    title TEXT NOT NULL UNIQUE,
-    release_year INTEGER NOT NULL,
-    running_time INTEGER NOT NULL,
-    FOREIGN KEY (genre_id) REFERENCES genre(id)
+    category_id INTEGER NOT NULL,
+    name TEXT NOT NULL UNIQUE,
+    price INTEGER NOT NULL CHECK (price > 0),
+    stock INTEGER NOT NULL CHECK (stock >= 0),
+    FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-CREATE TABLE review (
+CREATE TABLE purchase (
     id INTEGER PRIMARY KEY,
-    member_id INTEGER NOT NULL,
-    movie_id INTEGER NOT NULL,
-    rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
-    comment TEXT NOT NULL,
-    created_at TEXT NOT NULL,
-    FOREIGN KEY (member_id) REFERENCES member(id),
-    FOREIGN KEY (movie_id) REFERENCES movie(id)
+    customer_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    purchased_at TEXT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer(id),
+    FOREIGN KEY (product_id) REFERENCES product(id)
 );
